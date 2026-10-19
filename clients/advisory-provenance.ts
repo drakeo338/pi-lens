@@ -136,7 +136,6 @@ function isWellFormed(value: unknown): value is AdvisoryProvenance {
 		isFiniteNumber(revision.generation) &&
 		isFiniteNumber(revision.capturedAt) &&
 		Array.isArray(record.files) &&
-		record.files.length > 0 &&
 		record.files.every(
 			(file) =>
 				!!file &&
@@ -222,7 +221,8 @@ export function validateAdvisoryProvenance(
 		if (reasons.length > reasonsBefore)
 			changedPaths.add(advisoryPathKey(resolved, cwd));
 	}
-	const allFilesDeleted = deletedFiles === provenance.files.length;
+	const allFilesDeleted =
+		provenance.files.length > 0 && deletedFiles === provenance.files.length;
 	if (unknown)
 		return {
 			status: "unknown",
