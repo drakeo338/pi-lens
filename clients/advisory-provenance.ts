@@ -135,6 +135,8 @@ function isWellFormed(value: unknown): value is AdvisoryProvenance {
 		isFiniteNumber(revision.turnIndex) &&
 		isFiniteNumber(revision.generation) &&
 		isFiniteNumber(revision.capturedAt) &&
+		// An empty file list is valid by design: a no-write turn snapshots no
+		// files (#4617). Do not require length > 0 here.
 		Array.isArray(record.files) &&
 		record.files.every(
 			(file) =>

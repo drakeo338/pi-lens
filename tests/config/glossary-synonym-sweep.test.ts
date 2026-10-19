@@ -1251,7 +1251,7 @@ const PINS: Readonly<Record<string, Readonly<Record<string, number>>>> = {
 	},
 	record: {
 		"clients/actionable-warnings.ts": 14,
-		"clients/advisory-provenance.ts": 8,
+		"clients/advisory-provenance.ts": 7,
 		"clients/cache-observability.ts": 2,
 		"clients/config-core/merge.ts": 3,
 		"clients/config-core/normalize.ts": 12,
